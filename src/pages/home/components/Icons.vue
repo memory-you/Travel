@@ -108,13 +108,15 @@ export default {
   overflow hidden
   height 0
   padding-bottom 50%
-.icon
-  position relative
-  overflow hidden
-  float left
-  width 25%
-  height 0
-  padding-bottom 25%
+.icons
+  margin-top 0.1rem
+  .icon
+    position relative
+    overflow hidden
+    float left
+    width 25%
+    height 0
+    padding-bottom 25%
   .icon-img
     position absolute
     top 0
@@ -123,10 +125,10 @@ export default {
     bottom 0.44rem
     box-sizing border-box
     padding 0.1rem
-    .icon-img-content
-      display block
-      margin 0 auto
-      height 100%
+  .icon-img-content
+    display block
+    margin 0 auto
+    height 100%
   .icon-desc
     position absolute
     left 0
