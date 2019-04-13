@@ -1,8 +1,11 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper
+      :options="swiperOption"
+      v-if="showSwiper"
+    >
       <swiper-slide
-        v-for="item of swiperList"
+        v-for="item of list"
         :key="item.id"
       ><img
           class="swiper-img"
@@ -21,29 +24,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/26c9b54e3e02d3724f614883d77a62c6.jpg_750x200_57aa8efa.jpg'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1609/e8/a26190adcdc51c02.jpg_750x200_c4691cbe.jpg'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/bd0af35db8de5fff3379cc082fd21db6.jpg_750x200_5ea5bcce.jpg'
-        }
-      ]
+      }
+    }
+  },
+  computed: {
+    showSwiper() {
+      return this.list.length
     }
   }
 }

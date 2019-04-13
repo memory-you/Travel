@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide
         v-for="(page,index) of pages"
         :key="index"
@@ -25,70 +25,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data() {
     return {
-      iconList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/f5/a963333e1fa802.png',
-          desc: '本地游玩'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-          desc: '自然风光'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '一日游'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-          desc: '游乐场'
-        },
-        {
-          id: '0006',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-          desc: '踏青赏花'
-        },
-        {
-          id: '0007',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '南昌必游'
-        },
-        {
-          id: '0008',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/ec/0e1e0238e24ba02.png',
-          desc: '吉安'
-        },
-        {
-          id: '0009',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png',
-          desc: '全部游乐'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages() {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
