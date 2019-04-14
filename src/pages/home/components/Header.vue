@@ -6,7 +6,7 @@
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
       城市/景点/游玩</div>
-    <router-link to="./city">
+    <router-link to="/city">
       <div class="header-right">{{this.city}}
         <span class="iconfont arrow-icon">&#xe606;</span>
       </div>
@@ -15,10 +15,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Header',
-  props: {
-    city: String
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -47,7 +48,8 @@ export default {
     border-radius 0.1rem
     color #ccc
   .header-right
-    width 1.24rem
+    min-width 1.04rem
+    padding 0 0.1rem
     float right
     text-align center
     color #ffffff
