@@ -62,7 +62,7 @@ export default {
   position absolute
   left 0.2rem
   top 0.2rem
-  width 0.8ren
+  width 0.8rem
   height 0.8rem
   text-align center
   border-radius 0.4rem
@@ -70,6 +70,7 @@ export default {
   .header-abs-back
     color #ffffff
     font-size 0.4rem
+    padding-top 0.2rem
 .header-fixed
   z-index 2
   position fixed
